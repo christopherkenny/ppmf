@@ -1,6 +1,6 @@
 Package: ppmf
 Title: Read Census Privacy Protected Microdata Files
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: person("Christopher T.", "Kenny", email = "christopherkenny@fas.harvard.edu",
                   role = c("aut", "cre"), comment = c(ORCID = "0000-0002-9386-6860"))
 Description: This mini package reads in Census PPMF data. There are tools for aggregating to relevant levels of geography, grouping race numeric identifiers into categories, and adding standard GEOID for linking to shapefile data.
@@ -17,7 +17,8 @@ Imports:
     rlang (>= 0.1.2),
     stringr,
     tibble,
-    tidyr
+    tidyr,
+    zip
 Suggests: 
     roxygen2
 Depends: 

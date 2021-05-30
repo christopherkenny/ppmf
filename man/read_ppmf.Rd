@@ -27,3 +27,4 @@ path <- download_ppmf('ppmf_12.csv', dir = temp)
 ppmf <- read_ppmf('AL', path)
 }
 }
+\concept{getdata}

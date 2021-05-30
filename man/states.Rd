@@ -15,4 +15,6 @@ This data includes the 52 geographies (50 states plus D.C. and P.R.). Within the
 }
 \examples{
 data('states')
+
 }
+\concept{data}

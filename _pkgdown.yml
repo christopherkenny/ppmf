@@ -1,0 +1,21 @@
+url: https://christopherkenny.github.io/ppmf
+template:
+  params:
+    bootswatch: simplex
+reference:
+- title: "Get and Read Data"
+  desc: "Functions to download data, locate data urls, and read in data"
+- contents:
+  - has_concept("getdata")
+- title: "Work with PPMF Data"
+  desc: "Basic tools to work with PPMF data"
+- contents:
+  - has_concept("basic")
+- title: "Work with Census style GEOIDs"
+  desc: "Use Census geographic identifiers"
+- contents:
+  - has_concept("geoid")
+- title: "Included Data"
+  desc: "Data included for examples and to clarify groupings"
+- contents:
+  - has_concept("data")

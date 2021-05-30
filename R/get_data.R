@@ -12,6 +12,8 @@
 #' @importFrom readr read_csv
 #' @importFrom stringr str_pad
 #'
+#' @concept getdata
+#'
 #' @examples
 #' \dontrun{
 #' # Takes a few minutes and requires read access to files
@@ -69,13 +71,16 @@ read_ppmf <- function(state, path){
 #' @return a string path to where the
 #' @export
 #'
-#' @importFrom utils unzip download.file
+#' @importFrom utils download.file
+#' @importFrom zip unzip
+#'
+#' @concept getdata
 #'
 #' @examples
 #' \dontrun{
 #' # Takes a few minutes and requires read access to files
 #' temp <- tempdir()
-#' path <- download_ppmf('ppmf_12', dir = temp)
+#' path <- download_ppmf(dsn = 'ppmf_12', dir = temp)
 #' }
 download_ppmf <- function(dsn, dir = '', version = '12', overwrite = FALSE){
   match.arg(version, choices = c('12', '4'))
@@ -112,19 +117,66 @@ download_ppmf <- function(dsn, dir = '', version = '12', overwrite = FALSE){
   temp <- tempfile(fileext = '.zip')
 
   zip_path <- ifelse(version == '12',
-                     'https://hu-my.sharepoint.com/:u:/g/personal/christopherkenny_fas_harvard_edu/Eev1S2CeszpFoxLcXTyQS_ABQtCP512MbVkqgi31eZJmog?download=1',
-                     'https://hu-my.sharepoint.com/:u:/g/personal/christopherkenny_fas_harvard_edu/EakoCYWsIDBOl22gjmxDtEcBbOdIJDecU4OyPgKzxez6iA?download=1')
+                     'https://github.com/christopherkenny/ppmf_data/releases/download/04282021/ppmf_12.zip',
+                     'https://github.com/christopherkenny/ppmf_data/releases/download/04282021/ppmf_4.zip')
 
   download.file(zip_path, temp)
 
   # then create the desired file:
-  unzip(zipfile = temp, exdir = path)
-
-  # Might be a problem?
-  cat('If you received a warning about unzipping, you *may* need to manually unzip the file.\n')
-  cat('file at: ', temp, '\n')
+  cat('File downloaded. Unzipping, please wait.\n')
+  zip::unzip(zipfile = temp, exdir = dir)
+  
+  # rename it
+  down_name <- ifelse(version == '12',
+                      'ppmf_20210428_eps12-2_P.csv',
+                      'ppmf_20210428_eps4-5_P.csv')
+  
+  file.rename(from = stringr::str_glue('{dir}/{down_name}'), to = path)
 
   # and return where we put it:
   return(path)
 
 }
+
+
+#' Get PPMF File Links
+#' 
+#' Returns the urls for the data. This will be expanded to link to prior or 
+#' any new releases.
+#'
+#'
+#' @param version string in '12' or '4' signifying the 12.2 or 4.5 versions respectively
+#' @param release string. Only option is '04.28.2021' currently.
+#' @param compressed boolean. Return a compressed version (TRUE). FALSE gives the 
+#' Census Bureau link to the uncompressed data.
+#' @return a string with url
+#' @export
+#'
+#' @concept getdata
+#'
+#' @examples
+#' # 04.28.2021 version 12.2
+#' get_ppmf_links()
+#' # 04.28.2021 version 4.5
+#' get_ppmf_links(version = '4')
+get_ppmf_links <- function(version = '12', release = '04.28.2021', compressed = TRUE){
+  match.arg(version, choices = c('12', '4'))
+
+  # if(release == '04.28.2021'){
+  if(compressed){
+    if (version == '12') {
+      'https://github.com/christopherkenny/ppmf_data/releases/download/04282021/ppmf_12.zip'
+    } else {
+      'https://github.com/christopherkenny/ppmf_data/releases/download/04282021/ppmf_4.zip'
+    }
+  } else {
+    if (version == '12') {
+      'https://www2.census.gov/programs-surveys/decennial/2020/program-management/data-product-planning/2010-demonstration-data-products/ppmf20210428/ppmf_20210428_eps12-2_P.csv'
+    } else {
+      'https://www2.census.gov/programs-surveys/decennial/2020/program-management/data-product-planning/2010-demonstration-data-products/ppmf20210428/ppmf_20210428_eps4-5_P.csv'
+    }
+  }
+  #}
+
+}
+

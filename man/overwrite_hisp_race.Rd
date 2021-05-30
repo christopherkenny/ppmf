@@ -23,3 +23,4 @@ Overwrite Races with Hispanic
 data(ppmf_ex)
 ppmf_ex \%>\% replace_race() \%>\% overwrite_hisp_race()
 }
+\concept{basic}

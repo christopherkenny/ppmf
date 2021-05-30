@@ -18,4 +18,6 @@ due to DAS, not every block with population appears in this data.
 }
 \examples{
 data('ppmf_ex')
+
 }
+\concept{data}

@@ -17,6 +17,8 @@
 #'
 #' @examples
 #' data('ppmf_ex')
+#' 
+#' @concept data
 NULL
 
 #' State Rows
@@ -34,6 +36,8 @@ NULL
 #'
 #' @examples
 #' data('states')
+#' 
+#' @concept data
 NULL
 
 #' Race Classifications
@@ -55,5 +59,7 @@ NULL
 #' @examples
 #' data('races')
 #'
+#'
+#' @concept data
 #' @md
 NULL

@@ -22,3 +22,4 @@ data(ppmf_ex)
 ppmf_ex <- ppmf_ex \%>\% add_geoid()
 ppmf_ex <- ppmf_ex \%>\% breakdown_geoid()
 }
+\concept{geoid}

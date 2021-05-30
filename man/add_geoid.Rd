@@ -42,3 +42,4 @@ data(ppmf_ex)
 ppmf_ex <- ppmf_ex \%>\% add_geoid()
 
 }
+\concept{geoid}

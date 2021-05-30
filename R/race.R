@@ -11,7 +11,7 @@
 #'
 #' @importFrom dplyr .data rename select left_join
 #' @importFrom rlang as_name
-#'
+#' @concept basic
 #' @examples
 #' data(ppmf_ex)
 #' ppmf_ex %>% replace_race()
@@ -47,7 +47,7 @@ replace_race <- function(ppmf, race = CENRACE){
 #'
 #' @return tibble with race column entries replaced if the individual is Hispanic
 #' @export
-#'
+#' @concept basic
 #' @examples
 #' data(ppmf_ex)
 #' ppmf_ex %>% replace_race() %>% overwrite_hisp_race()

@@ -22,4 +22,6 @@ which is controlled separately by race within the census
 \examples{
 data('races')
 
+
 }
+\concept{data}

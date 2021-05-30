@@ -50,3 +50,4 @@ ppmf_ex <- ppmf_ex \%>\% add_geoid()
 blocks <- agg(ppmf_ex)
 
 }
+\concept{basic}

@@ -22,3 +22,4 @@ classifications, typically useful for redistricting purposes.
 data(ppmf_ex)
 ppmf_ex \%>\% replace_race()
 }
+\concept{basic}

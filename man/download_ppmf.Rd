@@ -26,6 +26,7 @@ Current reads from Chris's OneDrive for zip files!
 \dontrun{
 # Takes a few minutes and requires read access to files
 temp <- tempdir()
-path <- download_ppmf('ppmf_12', dir = temp)
+path <- download_ppmf(dsn = 'ppmf_12', dir = temp)
 }
 }
+\concept{getdata}

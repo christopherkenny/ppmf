@@ -33,7 +33,8 @@
 #' @importFrom dplyr .data select full_join count group_by filter rowwise starts_with ungroup
 #' @importFrom tidyr pivot_wider
 #' @importFrom tibble add_column
-#'
+#' 
+#' @concept basic
 #' @md
 #'
 #' @examples

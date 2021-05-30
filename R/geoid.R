@@ -18,7 +18,7 @@
 #'
 #' @importFrom rlang enquo eval_tidy
 #' @importFrom dplyr mutate
-#'
+#' @concept geoid
 #' @examples
 #' data(ppmf_ex)
 #' ppmf_ex <- ppmf_ex %>% add_geoid()
@@ -60,7 +60,7 @@ add_geoid <- function(ppmf, state = TABBLKST, county = TABBLKCOU,
 #' @export
 #'
 #' @importFrom stringr str_sub str_length
-#'
+#' @concept geoid
 #' @examples
 #' data(ppmf_ex)
 #' ppmf_ex <- ppmf_ex %>% add_geoid()
