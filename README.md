@@ -4,6 +4,8 @@
 # ppmf
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/christopherkenny/ppmf/workflows/R-CMD-check/badge.svg)](https://github.com/christopherkenny/ppmf/actions)
 <!-- badges: end -->
 
 The goal of ppmf is to convert Census Privacy Protected Microdata Files
