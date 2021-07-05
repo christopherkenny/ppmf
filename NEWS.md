@@ -1,3 +1,6 @@
+# ppmf 0.0.4
+* Update information for public use
+
 # ppmf 0.0.3
 * Uses GitHub release links for compressed data
 * Add get_ppmf_links() to get the links for data
