@@ -36,6 +36,19 @@ path <- download_ppmf(dsn = 'filename.csv', dir = 'some/directory')
 al <- read_ppmf(state = 'AL', path = path)
 ```
 
+For future use, I recommend storing the path to the data for future
+sessions using:
+
+``` r
+add_pmmf12_path(path)
+```
+
+Then the path can be recovered with:
+
+``` r
+path12 <- Sys.getenv('ppmf12')
+```
+
 Once you’ve read in what you want, you can aggregate it to the right
 level:
 

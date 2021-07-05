@@ -23,6 +23,8 @@ Add ppmf12 path to Renviron
 \dontrun{
 tp <- tempfile(fileext = '.csv')
 add_ppmf12_path(tp)
+path12 <- Sys.getenv('path12')
 }
 
 }
+\concept{save}
