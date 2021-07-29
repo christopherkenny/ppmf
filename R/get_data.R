@@ -23,7 +23,7 @@
 #' ppmf <- read_ppmf('AL', path)
 #' }
 read_ppmf <- function(state, path){
-  states <- get('states')
+  states <- ppmf::states
 
   if(is.numeric(state)){
     state <- str_pad(state, 2, 'left', '0')
@@ -125,12 +125,12 @@ download_ppmf <- function(dsn, dir = '', version = '12', overwrite = FALSE){
   # then create the desired file:
   cat('File downloaded. Unzipping, please wait.\n')
   zip::unzip(zipfile = temp, exdir = dir)
-  
+
   # rename it
   down_name <- ifelse(version == '12',
                       'ppmf_20210428_eps12-2_P.csv',
                       'ppmf_20210428_eps4-5_P.csv')
-  
+
   file.rename(from = stringr::str_glue('{dir}/{down_name}'), to = path)
 
   # and return where we put it:
@@ -140,14 +140,14 @@ download_ppmf <- function(dsn, dir = '', version = '12', overwrite = FALSE){
 
 
 #' Get PPMF File Links
-#' 
-#' Returns the urls for the data. This will be expanded to link to prior or 
+#'
+#' Returns the urls for the data. This will be expanded to link to prior or
 #' any new releases.
 #'
 #'
 #' @param version string in '12' or '4' signifying the 12.2 or 4.5 versions respectively
 #' @param release string. Only option is '04.28.2021' currently.
-#' @param compressed boolean. Return a compressed version (TRUE). FALSE gives the 
+#' @param compressed boolean. Return a compressed version (TRUE). FALSE gives the
 #' Census Bureau link to the uncompressed data.
 #' @return a string with url
 #' @export

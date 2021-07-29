@@ -1,3 +1,6 @@
+# ppmf 0.0.5
+* Fix issue where `read_ppmf()` can't read in files if there's an object named `states` in the global environment.
+
 # ppmf 0.0.4
 * Update information for public use
 
