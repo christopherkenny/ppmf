@@ -23,3 +23,7 @@ reference:
   desc: "Data included for examples and to clarify groupings"
 - contents:
   - has_concept("data")
+- title: "Misc Functions"
+  desc: "Remaining funcctions"
+- contents:
+  - lacks_concepts(c("getdata", "save", "basic", "geoid", "data"))
