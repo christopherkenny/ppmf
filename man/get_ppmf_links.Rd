@@ -4,12 +4,12 @@
 \alias{get_ppmf_links}
 \title{Get PPMF File Links}
 \usage{
-get_ppmf_links(version = "12", release = "04.28.2021", compressed = TRUE)
+get_ppmf_links(version = "19", release = "06.08.2021", compressed = TRUE)
 }
 \arguments{
-\item{version}{string in '12' or '4' signifying the 12.2 or 4.5 versions respectively}
+\item{version}{string in '19', '12' or '4' signifying the 19.61, 12.2, or 4.5 versions respectively}
 
-\item{release}{string. Only option is '04.28.2021' currently.}
+\item{release}{string. Ignored. Options are '06.08.2021' and '04.28.2021'.}
 
 \item{compressed}{boolean. Return a compressed version (TRUE). FALSE gives the
 Census Bureau link to the uncompressed data.}

@@ -4,23 +4,23 @@
 \alias{download_ppmf}
 \title{Download PPMF Files}
 \usage{
-download_ppmf(dsn, dir = "", version = "12", overwrite = FALSE)
+download_ppmf(dsn, dir = "", version = "19", overwrite = FALSE)
 }
 \arguments{
 \item{dsn}{(data save name) string to unzip the data to}
 
 \item{dir}{the folder or directory to save the file in}
 
-\item{version}{string in '12' or '4' signifying the 12-2 or 4-5 versions respectively}
+\item{version}{string in '19', '12' or '4' signifying the 19.61, 12.2 or 4.5 versions respectively}
 
 \item{overwrite}{If a file is found at path/dsn, should it be overwritten?
 Defaults to FALSE.}
 }
 \value{
-a string path to where the
+a string path to where the file was downloaded to
 }
 \description{
-Current reads from Chris's OneDrive for zip files!
+Downloads zipped ppmf files from GitHub.
 }
 \examples{
 \dontrun{
