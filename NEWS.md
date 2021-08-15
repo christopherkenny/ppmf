@@ -1,3 +1,6 @@
+# ppmf 0.1.0
+* Add support for PLB 19.61
+
 # ppmf 0.0.6
 * Adds `censable` dependency and function `read_merge_ppmf` to create cleaner merging workflows.
 * Removes references to the string `block_group`, moving towards the more consistent `block group`.
