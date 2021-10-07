@@ -7,7 +7,7 @@
 read_merge_ppmf(
   state,
   level,
-  versions = c("12"),
+  versions = c("19"),
   prefixes = paste0("v", versions, "_"),
   paths = Sys.getenv(paste0("ppmf", versions))
 )
@@ -17,7 +17,7 @@ read_merge_ppmf(
 
 \item{level}{geography level. One of 'block', 'block group', 'tract', 'county'}
 
-\item{versions}{character vector of ppmf versions. Currently only '12'and/or '4'}
+\item{versions}{character vector of ppmf versions. Currently '19', '12', and/or '4'}
 
 \item{prefixes}{prefixes to give pop and vap columns in output. Default is \code{paste0('v', versions, '_')}}
 

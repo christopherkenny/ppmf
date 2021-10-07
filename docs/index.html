@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ppmf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -78,7 +78,7 @@
   <div class="contents col-md-9">
 <div id="ppmf-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#ppmf-" class="anchor"></a>ppmf <a href="https://christopherkenny.github.io/ppmf"><img src="reference/figures/logo.png" align="right" height="129"></a>
+<a href="#ppmf-" class="anchor"></a>ppmf <a href="https://www.christophertkenny.com/ppmf/"><img src="reference/figures/logo.png" align="right" height="129"></a>
 </h1></div>
 <!-- badges: start -->
 
@@ -99,14 +99,15 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/christopherkenny/ppmf/">ppmf</a></span><span class="op">)</span></code></pre></div>
 <p>Download and read data with:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/download_ppmf.html">download_ppmf</a></span><span class="op">(</span>dsn <span class="op">=</span> <span class="st">'filename.csv'</span>, dir <span class="op">=</span> <span class="st">'some/directory'</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/download_ppmf.html">download_ppmf</a></span><span class="op">(</span>dsn <span class="op">=</span> <span class="st">'filename.csv'</span>, dir <span class="op">=</span> <span class="st">'some/directory'</span>, version <span class="op">=</span> <span class="st">'19'</span><span class="op">)</span>
 <span class="va">al</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/read_ppmf.html">read_ppmf</a></span><span class="op">(</span>state <span class="op">=</span> <span class="st">'AL'</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span></code></pre></div>
+<p>Version ‘19’ reflects the 19.61 finalized parameters used again for the 2020 Census.</p>
 <p>For future use, I recommend storing the path to the data for future sessions using:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">add_pmmf12_path</span><span class="op">(</span><span class="va">path</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">add_pmmf19_path</span><span class="op">(</span><span class="va">path</span><span class="op">)</span></code></pre></div>
 <p>Then the path can be recovered with:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">path12</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">'ppmf12'</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">path19</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">'ppmf19'</span><span class="op">)</span></code></pre></div>
 <p>Once you’ve read in what you want, you can aggregate it to the right level:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">al</span> <span class="op">&lt;-</span> <span class="va">al</span> <span class="op">%&gt;%</span> <span class="fu"><a href="reference/add_geoid.html">add_geoid</a></span><span class="op">(</span><span class="op">)</span>
@@ -121,6 +122,11 @@
 
 <span class="co"># always clean shp!</span>
 <span class="va">shp</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">shp</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span></code></pre></div>
+<hr>
+<p>For users with the newest package version, there is an added dependency on <a href="https://www.christophertkenny.com/censable/"><code>censable</code></a>, which allows for an easier workflow. If you’ve used the <code>add_pmmf*_path()</code> workflow suggested, you don’t even need to supply the paths!</p>
+<p>This will not just read the <code>ppmf</code> data, it will merge it with 2010 Census populations (by major race/ethnicity grouping) and add the corresponding geometries.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">al</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/read_merge_ppmf.html">read_merge_ppmf</a></span><span class="op">(</span><span class="st">'AL'</span>, level <span class="op">=</span> <span class="st">'block'</span>, versions <span class="op">=</span> <span class="st">'19'</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
   </div>

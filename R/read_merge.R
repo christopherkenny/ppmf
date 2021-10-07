@@ -2,7 +2,7 @@
 #'
 #' @param state state abbreviation
 #' @param level geography level. One of 'block', 'block group', 'tract', 'county'
-#' @param versions character vector of ppmf versions. Currently only '12'and/or '4'
+#' @param versions character vector of ppmf versions. Currently '19', '12', and/or '4'
 #' @param prefixes prefixes to give pop and vap columns in output. Default is `paste0('v', versions, '_')`
 #' @param paths paths to PPMF data. Default is `Sys.getenv(paste0('ppmf', versions))`
 #'
@@ -16,7 +16,7 @@
 #' # Requires Census Bureau API
 #' de_bg <- read_merge_ppmf('DE', 'block group')
 #' }
-read_merge_ppmf <- function(state, level, versions = c('12'),
+read_merge_ppmf <- function(state, level, versions = c('19'),
                             prefixes = paste0('v', versions, '_'),
                             paths = Sys.getenv(paste0('ppmf', versions))) {
 
@@ -24,7 +24,7 @@ read_merge_ppmf <- function(state, level, versions = c('12'),
   state <- censable::match_abb(state)
   stopifnot(length(state) == 1)
   match.arg(level, choices = c('block', 'block group', 'tract', 'county'))
-  match.arg(versions, choices = c('12', '4'), several.ok = TRUE)
+  match.arg(versions, choices = c('19', '12', '4'), several.ok = TRUE)
 
   if (length(versions) != length(prefixes)) {
     stop('`versions` and `prefixes` must have equal lengths.')

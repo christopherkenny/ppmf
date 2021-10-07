@@ -1,7 +1,7 @@
 Package: ppmf
 Title: Read Census Privacy Protected Microdata Files
-Version: 0.1.0
-Date: 2021-08-14
+Version: 0.1.1
+Date: 2021-10-07
 Authors@R: person("Christopher T.", "Kenny", email = "christopherkenny@fas.harvard.edu",
                   role = c("aut", "cre"), comment = c(ORCID = "0000-0002-9386-6860"))
 Description: Read in Census PPMF data to implement data processing described in <arXiv:2105.14197>. This includes tools for aggregating to relevant levels of geography by creating geographic identifiers which match the US Census Bureau's numbering. Additionally, there are tools for grouping race numeric identifiers into categories, consistent with OMB classifications. Functions exist for downloading and linking to existing sources of privacy protected microdata.
@@ -10,7 +10,7 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 BugReports: https://github.com/christopherkenny/ppmf/issues
-URL: https://github.com/christopherkenny/ppmf/, https://christopherkenny.github.io/ppmf/
+URL: https://github.com/christopherkenny/ppmf/, https://www.christophertkenny.com/ppmf/
 RoxygenNote: 7.1.1
 Imports:
     censable,

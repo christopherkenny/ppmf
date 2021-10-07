@@ -3,7 +3,7 @@ citHeader("To cite ppmf in publications use:")
 citEntry(entry = "misc",
 	 title = "{ppmf}: ppmf: Read Census Privacy Protected Microdata Files",
 	 author = personList(as.person("Christopher T. Kenny")),
-	 url = "https://christopherkenny.github.io/ppmf/",
+	 url = "https://www.christophertkenny.com/ppmf/",
 	 textVersion = paste(" Christopher T. Kenny (2021).",
 	 	             "ppmf:  Read Census Privacy Protected Microdata Files.",
 			     "URL https://christopherkenny.github.io/ppmf.")
