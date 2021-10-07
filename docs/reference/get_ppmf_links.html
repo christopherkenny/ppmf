@@ -81,7 +81,7 @@ any new releases." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ppmf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -130,18 +130,18 @@ any new releases." />
 any new releases.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_ppmf_links</span><span class='op'>(</span>version <span class='op'>=</span> <span class='st'>"12"</span>, release <span class='op'>=</span> <span class='st'>"04.28.2021"</span>, compressed <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_ppmf_links</span><span class='op'>(</span>version <span class='op'>=</span> <span class='st'>"19"</span>, release <span class='op'>=</span> <span class='st'>"06.08.2021"</span>, compressed <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>version</th>
-      <td><p>string in '12' or '4' signifying the 12.2 or 4.5 versions respectively</p></td>
+      <td><p>string in '19', '12' or '4' signifying the 19.61, 12.2, or 4.5 versions respectively</p></td>
     </tr>
     <tr>
       <th>release</th>
-      <td><p>string. Only option is '04.28.2021' currently.</p></td>
+      <td><p>string. Ignored. Options are '06.08.2021' and '04.28.2021'.</p></td>
     </tr>
     <tr>
       <th>compressed</th>
@@ -157,7 +157,7 @@ Census Bureau link to the uncompressed data.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># 04.28.2021 version 12.2</span>
 <span class='fu'>get_ppmf_links</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "https://github.com/christopherkenny/ppmf_data/releases/download/04282021/ppmf_12.zip"</div><div class='input'><span class='co'># 04.28.2021 version 4.5</span>
+</div><div class='output co'>#&gt; [1] "https://github.com/christopherkenny/ppmf_data/releases/download/08122021/ppmf_19.zip"</div><div class='input'><span class='co'># 04.28.2021 version 4.5</span>
 <span class='fu'>get_ppmf_links</span><span class='op'>(</span>version <span class='op'>=</span> <span class='st'>'4'</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "https://github.com/christopherkenny/ppmf_data/releases/download/04282021/ppmf_4.zip"</div></pre>
   </div>
