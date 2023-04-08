@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ppmf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
@@ -53,39 +53,50 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read_merge_ppmf</span><span class="op">(</span>
-  <span class="va">state</span>,
-  <span class="va">level</span>,
-  versions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"19"</span><span class="op">)</span>,
-  prefixes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"v"</span>, <span class="va">versions</span>, <span class="st">"_"</span><span class="op">)</span>,
-  paths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"ppmf"</span>, <span class="va">versions</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read_merge_ppmf</span><span class="op">(</span></span>
+<span>  <span class="va">state</span>,</span>
+<span>  <span class="va">level</span>,</span>
+<span>  versions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"19"</span><span class="op">)</span>,</span>
+<span>  prefixes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"v"</span>, <span class="va">versions</span>, <span class="st">"_"</span><span class="op">)</span>,</span>
+<span>  paths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"ppmf"</span>, <span class="va">versions</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>state</dt>
 <dd><p>state abbreviation</p></dd>
+
+
 <dt>level</dt>
 <dd><p>geography level. One of 'block', 'block group', 'tract', 'county'</p></dd>
+
+
 <dt>versions</dt>
 <dd><p>character vector of ppmf versions. Currently '19', '12', and/or '4'</p></dd>
+
+
 <dt>prefixes</dt>
 <dd><p>prefixes to give pop and vap columns in output. Default is <code>paste0('v', versions, '_')</code></p></dd>
+
+
 <dt>paths</dt>
 <dd><p>paths to PPMF data. Default is <code>Sys.getenv(paste0('ppmf', versions))</code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>sf tibble of PPMF merged with Census 2010 data</p>
+    
+
+<p>sf tibble of PPMF merged with Census 2010 data</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co"># Requires Census Bureau API</span></span>
-<span class="r-in"><span class="va">de_bg</span> <span class="op">&lt;-</span> <span class="fu">read_merge_ppmf</span><span class="op">(</span><span class="st">'DE'</span>, <span class="st">'block group'</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># Requires Census Bureau API</span></span></span>
+<span class="r-in"><span><span class="va">de_bg</span> <span class="op">&lt;-</span> <span class="fu">read_merge_ppmf</span><span class="op">(</span><span class="st">'DE'</span>, <span class="st">'block group'</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -100,7 +111,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

@@ -18,7 +18,7 @@ by tigris. This allows for easier merging or aggregation by a single variable.">
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ppmf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
@@ -55,45 +55,60 @@ by tigris. This allows for easier merging or aggregation by a single variable.</
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">add_geoid</span><span class="op">(</span>
-  <span class="va">ppmf</span>,
-  state <span class="op">=</span> <span class="va">TABBLKST</span>,
-  county <span class="op">=</span> <span class="va">TABBLKCOU</span>,
-  tract <span class="op">=</span> <span class="va">TABTRACT</span>,
-  block_group <span class="op">=</span> <span class="va">TABBLKGRP</span>,
-  block <span class="op">=</span> <span class="va">TABBLK</span>,
-  level <span class="op">=</span> <span class="st">"block"</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">add_geoid</span><span class="op">(</span></span>
+<span>  <span class="va">ppmf</span>,</span>
+<span>  state <span class="op">=</span> <span class="va">TABBLKST</span>,</span>
+<span>  county <span class="op">=</span> <span class="va">TABBLKCOU</span>,</span>
+<span>  tract <span class="op">=</span> <span class="va">TABTRACT</span>,</span>
+<span>  block_group <span class="op">=</span> <span class="va">TABBLKGRP</span>,</span>
+<span>  block <span class="op">=</span> <span class="va">TABBLK</span>,</span>
+<span>  level <span class="op">=</span> <span class="st">"block"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>ppmf</dt>
 <dd><p>tibble of ppmf data</p></dd>
+
+
 <dt>state</dt>
 <dd><p>Column in ppmf with state (fips) ID. Default is <code>TABBLKST</code>.</p></dd>
+
+
 <dt>county</dt>
 <dd><p>Column in ppmf with county (fips) ID. Default is <code>TABBLKCOU</code>.</p></dd>
+
+
 <dt>tract</dt>
 <dd><p>Column in ppmf with tract ID. Default is <code>TABBLKTRACT</code>.</p></dd>
+
+
 <dt>block_group</dt>
 <dd><p>Column in ppmf with block group ID. Default is <code>TABBLKGRP</code></p></dd>
+
+
 <dt>block</dt>
 <dd><p>Column in ppmf with block ID. Default is <code>TABBLK</code>.</p></dd>
+
+
 <dt>level</dt>
 <dd><p>Geographic level to write the GEOID for. Options are block (default),
 block_group, tract, and county.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>input data ppmf with added column GEOID</p>
+    
+
+<p>input data ppmf with added column GEOID</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">ppmf_ex</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">ppmf_ex</span> <span class="op">&lt;-</span> <span class="va">ppmf_ex</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu">add_geoid</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">ppmf_ex</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ppmf_ex</span> <span class="op">&lt;-</span> <span class="va">ppmf_ex</span> <span class="op">|&gt;</span> <span class="fu">add_geoid</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -108,7 +123,7 @@ block_group, tract, and county.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

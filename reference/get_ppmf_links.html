@@ -18,7 +18,7 @@ any new releases."><meta property="og:image" content="https://christopherkenny.g
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ppmf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
@@ -55,31 +55,38 @@ any new releases.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">get_ppmf_links</span><span class="op">(</span>version <span class="op">=</span> <span class="st">"19"</span>, release <span class="op">=</span> <span class="st">"06.08.2021"</span>, compressed <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_ppmf_links</span><span class="op">(</span>version <span class="op">=</span> <span class="st">"19"</span>, release <span class="op">=</span> <span class="st">"06.08.2021"</span>, compressed <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>version</dt>
 <dd><p>string in '19', '12' or '4' signifying the 19.61, 12.2, or 4.5 versions respectively</p></dd>
+
+
 <dt>release</dt>
 <dd><p>string. Ignored. Options are '06.08.2021' and '04.28.2021'.</p></dd>
+
+
 <dt>compressed</dt>
 <dd><p>boolean. Return a compressed version (TRUE). FALSE gives the
 Census Bureau link to the uncompressed data.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a string with url</p>
+    
+
+<p>a string with url</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># 04.28.2021 version 12.2</span></span>
-<span class="r-in"><span class="fu">get_ppmf_links</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># 04.28.2021 version 12.2</span></span></span>
+<span class="r-in"><span><span class="fu">get_ppmf_links</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://github.com/christopherkenny/ppmf_data/releases/download/08122021/ppmf_19.zip"</span>
-<span class="r-in"><span class="co"># 04.28.2021 version 4.5</span></span>
-<span class="r-in"><span class="fu">get_ppmf_links</span><span class="op">(</span>version <span class="op">=</span> <span class="st">'4'</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># 04.28.2021 version 4.5</span></span></span>
+<span class="r-in"><span><span class="fu">get_ppmf_links</span><span class="op">(</span>version <span class="op">=</span> <span class="st">'4'</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://github.com/christopherkenny/ppmf_data/releases/download/04282021/ppmf_4.zip"</span>
 </code></pre></div>
     </div>
@@ -95,7 +102,7 @@ Census Bureau link to the uncompressed data.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

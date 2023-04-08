@@ -18,7 +18,7 @@ classifications, typically useful for redistricting purposes."><meta property="o
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ppmf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
@@ -55,25 +55,30 @@ classifications, typically useful for redistricting purposes.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">replace_race</span><span class="op">(</span><span class="va">ppmf</span>, race <span class="op">=</span> <span class="va">CENRACE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">replace_race</span><span class="op">(</span><span class="va">ppmf</span>, race <span class="op">=</span> <span class="va">CENRACE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>ppmf</dt>
 <dd><p>tibble of ppmf data</p></dd>
+
+
 <dt>race</dt>
 <dd><p>Column in ppmf containing race codes</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>tibble with race column replaced by simpler racial classifications</p>
+    
+
+<p>tibble with race column replaced by simpler racial classifications</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">ppmf_ex</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">ppmf_ex</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu">replace_race</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">ppmf_ex</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ppmf_ex</span> <span class="op">|&gt;</span> <span class="fu">replace_race</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10,588 × 11</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    VINTAGE          TABBLKST TABBLKCOU TABTRACT TABBLKGRP TABBLK RTYPE GQTYPE_PL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -87,8 +92,8 @@ classifications, typically useful for redistricting purposes.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 20210428_eps12-… 01       105       686800           1   <span style="text-decoration: underline;">1</span>003     3         0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 20210428_eps12-… 01       105       686800           1   <span style="text-decoration: underline;">1</span>003     3         0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 20210428_eps12-… 01       105       686800           1   <span style="text-decoration: underline;">1</span>003     3         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 10,578 more rows, and 3 more variables: VOTING_AGE &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   CENHISP &lt;dbl&gt;, CENRACE &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 10,578 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 3 more variables: VOTING_AGE &lt;dbl&gt;, CENHISP &lt;dbl&gt;, CENRACE &lt;chr&gt;</span></span>
 </code></pre></div>
     </div>
   </div>
@@ -103,7 +108,7 @@ classifications, typically useful for redistricting purposes.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

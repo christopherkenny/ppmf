@@ -1,8 +1,8 @@
-pandoc: 2.7.3
-pkgdown: 2.0.1
+pandoc: 2.19.2
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles: {}
-last_built: 2021-12-13T16:09Z
+last_built: 2023-04-08T03:30Z
 urls:
   reference: https://christopherkenny.github.io/ppmf/reference
   article: https://christopherkenny.github.io/ppmf/articles

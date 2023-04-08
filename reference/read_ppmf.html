@@ -18,7 +18,7 @@ not have a local copy of the ppmf data."><meta property="og:image" content="http
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ppmf</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
@@ -55,30 +55,35 @@ not have a local copy of the ppmf data.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read_ppmf</span><span class="op">(</span><span class="va">state</span>, <span class="va">path</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read_ppmf</span><span class="op">(</span><span class="va">state</span>, <span class="va">path</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>state</dt>
 <dd><p>two letter state (+ DC + PR) abbreviation or two digit state fips code</p></dd>
+
+
 <dt>path</dt>
 <dd><p>where the data is saved to</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>tibble of ppmf data</p>
+    
+
+<p>tibble of ppmf data</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co"># Takes a few minutes and requires read access to files</span></span>
-<span class="r-in"><span class="va">temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="download_ppmf.html">download_ppmf</a></span><span class="op">(</span><span class="st">'ppmf_12.csv'</span>, dir <span class="op">=</span> <span class="va">temp</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># If you already have it downloaded, point to it with path:</span></span>
-<span class="r-in"><span class="va">ppmf</span> <span class="op">&lt;-</span> <span class="fu">read_ppmf</span><span class="op">(</span><span class="st">'AL'</span>, <span class="va">path</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># Takes a few minutes and requires read access to files</span></span></span>
+<span class="r-in"><span><span class="va">temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="download_ppmf.html">download_ppmf</a></span><span class="op">(</span><span class="st">'ppmf_12.csv'</span>, dir <span class="op">=</span> <span class="va">temp</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># If you already have it downloaded, point to it with path:</span></span></span>
+<span class="r-in"><span><span class="va">ppmf</span> <span class="op">&lt;-</span> <span class="fu">read_ppmf</span><span class="op">(</span><span class="st">'AL'</span>, <span class="va">path</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -93,7 +98,7 @@ not have a local copy of the ppmf data.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
