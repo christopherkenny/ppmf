@@ -1,3 +1,6 @@
+# ppmf 0.2.0
+* Add support for 2023-04-03 release under PLB 19.61.
+
 # ppmf 0.1.1
 * Add default support for PLB 19.61 to `read_merge_ppmf()`.
 
