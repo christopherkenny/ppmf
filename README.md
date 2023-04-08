@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ppmf <a href='https://www.christophertkenny.com/ppmf/'><img src='man/figures/logo.png' align="right" height="129" /></a>
+# ppmf <a href='https://christophertkenny.com/ppmf/'><img src='man/figures/logo.png' align="right" height="129" /></a>
 
 <!-- badges: start -->
 
@@ -76,7 +76,7 @@ shp[is.na(shp)] <- 0
 ------------------------------------------------------------------------
 
 For users with the newest package version, there is an added dependency
-on [`censable`](https://www.christophertkenny.com/censable/), which
+on [`censable`](https://christophertkenny.com/censable/), which
 allows for an easier workflow. If you’ve used the `add_pmmf*_path()`
 workflow suggested, you don’t even need to supply the paths!
 

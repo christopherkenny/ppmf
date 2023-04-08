@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ppmf <a href='https://www.christophertkenny.com/ppmf/'><img src='man/figures/logo.png' align="right" height="129" /></a>
+# ppmf <a href='https://christophertkenny.com/ppmf/'><img src='man/figures/logo.png' align="right" height="129" /></a>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/christopherkenny/ppmf/workflows/R-CMD-check/badge.svg)](https://github.com/christopherkenny/ppmf/actions)
@@ -72,7 +72,7 @@ shp[is.na(shp)] <- 0
 ```
 
 --- 
-For users with the newest package version, there is an added dependency on [`censable`](https://www.christophertkenny.com/censable/), which allows for an easier workflow. If you've used the `add_pmmf*_path()` workflow suggested, you don't even need to supply the paths!
+For users with the newest package version, there is an added dependency on [`censable`](https://christophertkenny.com/censable/), which allows for an easier workflow. If you've used the `add_pmmf*_path()` workflow suggested, you don't even need to supply the paths!
 
 This will not just read the `ppmf` data, it will merge it with 2010 Census populations (by major race/ethnicity grouping) and add the corresponding geometries.
 
