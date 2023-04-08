@@ -39,7 +39,7 @@ by tigris. This allows for easier merging or aggregation by a single variable.
 }
 \examples{
 data(ppmf_ex)
-ppmf_ex <- ppmf_ex \%>\% add_geoid()
+ppmf_ex <- ppmf_ex |> add_geoid()
 
 }
 \concept{geoid}

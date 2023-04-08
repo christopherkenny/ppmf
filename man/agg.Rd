@@ -46,7 +46,7 @@ Aggregate PPMF Data
 }
 \examples{
 data(ppmf_ex)
-ppmf_ex <- ppmf_ex \%>\% add_geoid()
+ppmf_ex <- ppmf_ex |> add_geoid()
 blocks <- agg(ppmf_ex)
 
 }

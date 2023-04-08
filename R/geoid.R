@@ -21,7 +21,7 @@
 #' @concept geoid
 #' @examples
 #' data(ppmf_ex)
-#' ppmf_ex <- ppmf_ex %>% add_geoid()
+#' ppmf_ex <- ppmf_ex |> add_geoid()
 #'
 add_geoid <- function(ppmf, state = TABBLKST, county = TABBLKCOU,
                       tract = TABTRACT, block_group = TABBLKGRP,
@@ -46,7 +46,8 @@ add_geoid <- function(ppmf, state = TABBLKST, county = TABBLKCOU,
     tract <- NULL
   }
 
-  ppmf %>% mutate(GEOID = paste0({{state}}, {{county}}, {{tract}}, {{block_group}},
+  ppmf |>
+    dplyr::mutate(GEOID = paste0({{state}}, {{county}}, {{tract}}, {{block_group}},
                                  {{block}}))
 
 }
@@ -63,8 +64,8 @@ add_geoid <- function(ppmf, state = TABBLKST, county = TABBLKCOU,
 #' @concept geoid
 #' @examples
 #' data(ppmf_ex)
-#' ppmf_ex <- ppmf_ex %>% add_geoid()
-#' ppmf_ex <- ppmf_ex %>% breakdown_geoid()
+#' ppmf_ex <- ppmf_ex |> add_geoid()
+#' ppmf_ex <- ppmf_ex |> censable::breakdown_geoid()
 breakdown_geoid <- function(ppmf, GEOID = GEOID){
   if(missing(ppmf)){
     stop('ppmf argument missing in add_geoid.')
@@ -76,27 +77,27 @@ breakdown_geoid <- function(ppmf, GEOID = GEOID){
     stop('`GEOID` is not a column in ppmf.')
   }
 
-  if(str_length(geoid_col[1]) < 2){
+  if(stringr::str_length(geoid_col[1]) < 2){
     stop('GEOID does not have a recognizable pattern.')
   } else {
-    len <- str_length(geoid_col[1])
+    len <- stringr::str_length(geoid_col[1])
   }
 
-  ppmf <- ppmf %>% mutate(state = str_sub({{GEOID}}, 1, 2))
+  ppmf <- ppmf |> mutate(state = stringr::str_sub({{GEOID}}, 1, 2))
 
   if(len >= 5){
-    ppmf <- ppmf %>% mutate(county = str_sub({{GEOID}}, 3, 5))
+    ppmf <- ppmf |> mutate(county = stringr::str_sub({{GEOID}}, 3, 5))
   }
 
   if(len >= 11){
-    ppmf <- ppmf %>% mutate(tract = str_sub({{GEOID}}, 6, 11))
+    ppmf <- ppmf |> mutate(tract = stringr::str_sub({{GEOID}}, 6, 11))
   }
 
   if(len >= 12){
-    ppmf <- ppmf %>% mutate(block_group = str_sub({{GEOID}},12,12))
+    ppmf <- ppmf |> mutate(block_group = stringr::str_sub({{GEOID}},12,12))
   }
   if(len >= 15){
-    ppmf <- ppmf %>% mutate(block = str_sub({{GEOID}}, 12, 15))
+    ppmf <- ppmf |> mutate(block = stringr::str_sub({{GEOID}}, 12, 15))
   }
 
   ppmf

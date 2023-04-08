@@ -19,7 +19,7 @@ Breakdown GEOID into Components
 }
 \examples{
 data(ppmf_ex)
-ppmf_ex <- ppmf_ex \%>\% add_geoid()
-ppmf_ex <- ppmf_ex \%>\% breakdown_geoid()
+ppmf_ex <- ppmf_ex |> add_geoid()
+ppmf_ex <- ppmf_ex |> censable::breakdown_geoid()
 }
 \concept{geoid}

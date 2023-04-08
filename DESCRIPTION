@@ -19,11 +19,10 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 BugReports: https://github.com/christopherkenny/ppmf/issues
 URL: https://github.com/christopherkenny/ppmf/, https://christophertkenny.com/ppmf/
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Imports:
     censable,
     dplyr,
-    magrittr,
     readr,
     rlang (>= 0.4.11),
     stringr,

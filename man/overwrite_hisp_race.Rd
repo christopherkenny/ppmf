@@ -21,6 +21,6 @@ Overwrite Races with Hispanic
 }
 \examples{
 data(ppmf_ex)
-ppmf_ex \%>\% replace_race() \%>\% overwrite_hisp_race()
+ppmf_ex |> replace_race() |> overwrite_hisp_race()
 }
 \concept{basic}

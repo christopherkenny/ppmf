@@ -9,33 +9,30 @@
 #' @return tibble with race column replaced by simpler racial classifications
 #' @export
 #'
-#' @importFrom dplyr .data rename select left_join
-#' @importFrom rlang as_name
 #' @concept basic
 #' @examples
 #' data(ppmf_ex)
-#' ppmf_ex %>% replace_race()
+#' ppmf_ex |> replace_race()
 replace_race <- function(ppmf, race = CENRACE){
-  races <- get('races') %>% select(-.data$desc)
+  races <- get('races') |> select(-.data$desc)
 
-  #races <- races %>% rename(race = .data$code)
-  races[[as_name(enquo(race))]] <- races$code
+  #races <- races |> dplyr::rename(race = .data$code)
+  races[[rlang::as_name(rlang::enquo(race))]] <- races$code
 
-  if(as_name(enquo(race)) != 'code'){
-    races <- races %>% select(-.data$code)
+  if(rlang::as_name(enquo(race)) != 'code'){
+    races <- races |> select(-.data$code)
   }
 
-  races <- races %>% rename(group_race_name = .data$group)
+  races <- races |> dplyr::rename(group_race_name = .data$group)
 
-  ppmf <- ppmf %>% left_join(races, by = as_name(enquo(race)))
+  ppmf <- ppmf |> dplyr::left_join(races, by = rlang::as_name(enquo(race)))
 
   ppmf$group_race_name[is.na(ppmf$group_race_name)] <- 'hisp'
 
-  ppmf[[as_name(enquo(race))]] <- ppmf$group_race_name
+  ppmf[[rlang::as_name(enquo(race))]] <- ppmf$group_race_name
   ppmf[['group_race_name']] <- NULL
 
-
-  return(ppmf)
+  ppmf
 }
 
 
@@ -50,13 +47,12 @@ replace_race <- function(ppmf, race = CENRACE){
 #' @concept basic
 #' @examples
 #' data(ppmf_ex)
-#' ppmf_ex %>% replace_race() %>% overwrite_hisp_race()
+#' ppmf_ex |> replace_race() |> overwrite_hisp_race()
 overwrite_hisp_race <- function(ppmf, race = CENRACE, hisp = CENHISP){
 
-  ppmf[[as_name(enquo(race))]][ppmf[[as_name(enquo(hisp))]] == 2 ] <- 'hisp'
+  ppmf[[rlang::as_name(rlang::enquo(race))]][ppmf[[rlang::as_name(enquo(hisp))]] == 2 ] <- 'hisp'
 
-  return(ppmf)
-
+  ppmf
 }
 
 utils::globalVariables(c('CENRACE', 'CENHISP'))

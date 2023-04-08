@@ -17,7 +17,7 @@
 #'
 #' @examples
 #' data('ppmf_ex')
-#' 
+#'
 #' @concept data
 NULL
 
@@ -36,7 +36,7 @@ NULL
 #'
 #' @examples
 #' data('states')
-#' 
+#'
 #' @concept data
 NULL
 

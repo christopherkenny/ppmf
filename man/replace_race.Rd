@@ -20,6 +20,6 @@ classifications, typically useful for redistricting purposes.
 }
 \examples{
 data(ppmf_ex)
-ppmf_ex \%>\% replace_race()
+ppmf_ex |> replace_race()
 }
 \concept{basic}

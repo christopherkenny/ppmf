@@ -56,7 +56,7 @@ Once you’ve read in what you want, you can aggregate it to the right
 level:
 
 ``` r
-al <- al %>% add_geoid()
+al <- al |> add_geoid()
 blocks <- agg(al)
 ```
 
@@ -65,9 +65,9 @@ And aggregated data can use the GEOID to merge with shapefiles:
 ``` r
 library(dplyr) # to clean up the data
 
-shp <- tigris::blocks('AL', year = 2010) %>% 
-  select(GEOID10, geometry) %>% rename(GEOID = GEOID10)
-shp <- shp %>% left_join(blocks, by = 'GEOID')
+shp <- tigris::blocks('AL', year = 2010) |> 
+  select(GEOID10, geometry) |> rename(GEOID = GEOID10)
+shp <- shp |> left_join(blocks, by = 'GEOID')
 
 # always clean shp!
 shp[is.na(shp)] <- 0

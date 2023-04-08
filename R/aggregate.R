@@ -33,34 +33,34 @@
 #' @importFrom dplyr .data select full_join count group_by filter rowwise starts_with ungroup
 #' @importFrom tidyr pivot_wider
 #' @importFrom tibble add_column
-#' 
+#'
 #' @concept basic
 #' @md
 #'
 #' @examples
 #' data(ppmf_ex)
-#' ppmf_ex <- ppmf_ex %>% add_geoid()
+#' ppmf_ex <- ppmf_ex |> add_geoid()
 #' blocks <- agg(ppmf_ex)
 #'
 agg <- function(ppmf, group = GEOID, age = VOTING_AGE, race = CENRACE, hisp = CENHISP){
-  ppmf <- ppmf %>% select({{group}}, {{age}}, {{race}}, {{hisp}})
+  ppmf <- ppmf |> select({{group}}, {{age}}, {{race}}, {{hisp}})
 
-  ppmf <-  ppmf %>%
-    replace_race(race = !!enquo(race)) %>%
+  ppmf <-  ppmf |>
+    replace_race(race = !!enquo(race)) |>
     overwrite_hisp_race(race = !!enquo(race), hisp = !!enquo(hisp))
 
-  ppmf <- ppmf %>% select(-{{hisp}})
+  ppmf <- ppmf |> select(-{{hisp}})
 
 
 
-  ppmf_vap <- ppmf %>% filter({{age}} == 2) %>% select(-{{age}}) %>%
-    group_by({{group}}) %>% count({{race}}) %>%
+  ppmf_vap <- ppmf |> filter({{age}} == 2) |> select(-{{age}}) |>
+    group_by({{group}}) |> count({{race}}) |>
     pivot_wider(id_cols = {{group}}, names_from = {{race}},
                 values_from = .data$n, values_fill = 0, names_prefix = 'vap_')
 
 
-  ppmf_nvap <- ppmf %>% filter({{age}} == 1) %>% select(-{{age}}) %>%
-    group_by({{group}}) %>% count({{race}}) %>%
+  ppmf_nvap <- ppmf |> filter({{age}} == 1) |> select(-{{age}}) |>
+    group_by({{group}}) |> count({{race}}) |>
     pivot_wider(id_cols = {{group}}, names_from = {{race}},
                 values_from = .data$n, values_fill = 0, names_prefix = 'nvap_')
 
@@ -71,24 +71,24 @@ agg <- function(ppmf, group = GEOID, age = VOTING_AGE, race = CENRACE, hisp = CE
 
   add_vap <- rep(0, length(exp_vap))
   names(add_vap) <- exp_vap
-  ppmf_vap <- ppmf_vap %>% add_column(!!!add_vap[setdiff(names(add_vap),
+  ppmf_vap <- ppmf_vap |> add_column(!!!add_vap[dplyr::setdiff(names(add_vap),
                                                          names(ppmf_vap))])
   add_nvap <- rep(0, length(exp_nvap))
   names(add_nvap) <- exp_nvap
-  ppmf_nvap <- ppmf_nvap %>% add_column(!!!add_nvap[setdiff(names(add_nvap),
+  ppmf_nvap <- ppmf_nvap |> add_column(!!!add_nvap[dplyr::setdiff(names(add_nvap),
                                                            names(ppmf_nvap))])
 
   # join
 
-  ret <- ppmf_vap %>% full_join(ppmf_nvap, by = 'GEOID')
+  ret <- ppmf_vap |> full_join(ppmf_nvap, by = 'GEOID')
 
   # get the correct objects
   ret[is.na(ret)] <- 0
-  ret <- ret %>% ungroup()
-  ret <- ret %>% mutate(nvap = rowSums(select(., starts_with('nvap')), na.rm = TRUE),
-                                      vap = rowSums(select(., starts_with('vap')), na.rm = TRUE))
+  ret <- ret |> ungroup()
+  ret <- ret |> mutate(nvap = rowSums(select(ret, starts_with('nvap')), na.rm = TRUE),
+                                      vap = rowSums(select(ret, starts_with('vap')), na.rm = TRUE))
 
-  ret <- ret %>% mutate(pop = .data$nvap + .data$vap,
+  ret <- ret |> mutate(pop = .data$nvap + .data$vap,
                         pop_white = .data$vap_white + .data$nvap_white,
                         pop_hisp = .data$vap_hisp + .data$nvap_hisp,
                         pop_black = .data$vap_black + .data$nvap_black,
@@ -98,7 +98,7 @@ agg <- function(ppmf, group = GEOID, age = VOTING_AGE, race = CENRACE, hisp = CE
                         pop_other = .data$vap_other + .data$nvap_other,
                         pop_two = .data$vap_two + .data$nvap_two)
   # reorder and return
-  ret %>% select(.data$GEOID,
+  ret |> select(.data$GEOID,
                  .data$pop, .data$pop_white, .data$pop_hisp,
                  .data$pop_black, .data$pop_aian, .data$pop_asian,
                  .data$pop_nhpi, .data$pop_other, .data$pop_two,

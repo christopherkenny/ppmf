@@ -41,16 +41,16 @@ read_merge_ppmf <- function(state, level, versions = c('19'),
 
   # read ppmf data ----
   ppmfs <- lapply(seq_along(versions), function(x) {
-    read_ppmf(state = state, path = paths[x]) %>%
-    add_geoid(level = level) %>%
-    agg() %>%
+    read_ppmf(state = state, path = paths[x]) |>
+    add_geoid(level = level) |>
+    agg() |>
     dplyr::rename_with(.fn = function(i){paste0(prefixes[x], i)},
                        dplyr::starts_with(c('pop', 'vap')))
     })
 
   for (i in seq_along(ppmfs)) {
-    cen <- cen %>%
-      left_join(ppmfs[[i]], by = 'GEOID')
+    cen <- cen |>
+      dplyr::left_join(ppmfs[[i]], by = 'GEOID')
   }
 
   cen[is.na(cen)] <- 0
