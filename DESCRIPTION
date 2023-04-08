@@ -18,7 +18,8 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 BugReports: https://github.com/christopherkenny/ppmf/issues
-URL: https://github.com/christopherkenny/ppmf/, https://christophertkenny.com/ppmf/
+URL: https://github.com/christopherkenny/ppmf/,
+    https://christophertkenny.com/ppmf/
 RoxygenNote: 7.2.3
 Imports:
     censable,
