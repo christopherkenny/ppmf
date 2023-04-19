@@ -42,19 +42,14 @@ read_ppmf <- function(state, path){
     stop('`path` does not point to a file.')
   }
 
+  cols_nom <- readr::read_lines(file = path, n_max = 1) |>
+    stringr::str_split(pattern = ',', simplify = TRUE)
 
-  cols_nom <- c('VINTAGE', 'TABBLKST', 'TABBLKCOU',
-                'TABTRACT', 'TABBLKGRP', 'TABBLK',
-                'RTYPE', 'GQTYPE_PL', 'VOTING_AGE',
-                'CENHISP', 'CENRACE')
-
-  read_csv(path,
+  readr::read_csv(path,
            skip = states$skip[which_state],
            n_max = states$n_max[which_state],
-           col_types = 'ccccccccccc',
+           col_types = readr::cols(.default = readr::col_character()),
            col_names = cols_nom)
-
-
 
 }
 
