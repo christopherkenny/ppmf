@@ -55,17 +55,13 @@ any new releases.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_ppmf_links</span><span class="op">(</span>version <span class="op">=</span> <span class="st">"19"</span>, release <span class="op">=</span> <span class="st">"06.08.2021"</span>, compressed <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_ppmf_links</span><span class="op">(</span>version <span class="op">=</span> <span class="st">"19r"</span>, compressed <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>version</dt>
-<dd><p>string in '19', '12' or '4' signifying the 19.61, 12.2, or 4.5 versions respectively</p></dd>
-
-
-<dt>release</dt>
-<dd><p>string. Ignored. Options are '06.08.2021' and '04.28.2021'.</p></dd>
+<dd><p>string in '19r',, '19', '12' or '4' signifying the 19.61, 12.2, or 4.5 versions respectively</p></dd>
 
 
 <dt>compressed</dt>
@@ -84,7 +80,7 @@ Census Bureau link to the uncompressed data.</p></dd>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># 04.28.2021 version 12.2</span></span></span>
 <span class="r-in"><span><span class="fu">get_ppmf_links</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://github.com/christopherkenny/ppmf_data/releases/download/08122021/ppmf_19.zip"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://github.com/christopherkenny/ppmf_data/releases/download/04032023/ppmf_19_ordered.zip"</span>
 <span class="r-in"><span><span class="co"># 04.28.2021 version 4.5</span></span></span>
 <span class="r-in"><span><span class="fu">get_ppmf_links</span><span class="op">(</span>version <span class="op">=</span> <span class="st">'4'</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://github.com/christopherkenny/ppmf_data/releases/download/04282021/ppmf_4.zip"</span>
