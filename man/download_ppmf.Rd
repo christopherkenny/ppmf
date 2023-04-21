@@ -4,7 +4,7 @@
 \alias{download_ppmf}
 \title{Download PPMF Files}
 \usage{
-download_ppmf(dsn, dir = "", version = "19", overwrite = FALSE)
+download_ppmf(dsn, dir = "", version = "19r", overwrite = FALSE)
 }
 \arguments{
 \item{dsn}{(data save name) string to unzip the data to}

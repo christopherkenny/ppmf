@@ -8,8 +8,8 @@
 [![R-CMD-check](https://github.com/christopherkenny/ppmf/workflows/R-CMD-check/badge.svg)](https://github.com/christopherkenny/ppmf/actions)
 <!-- badges: end -->
 
-The goal of ppmf is to convert Census Privacy Protected Microdata Files
-into somewhat wider data aggregated to a geographic level.
+The goal of `ppmf` is to convert Census Privacy Protected Microdata
+Files into somewhat wider data aggregated to a geographic level.
 
 ## Installation
 
@@ -17,8 +17,8 @@ You can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("christopherkenny/ppmf")
+# install.packages("remotes")
+remotes::install_github("christopherkenny/ppmf")
 ```
 
 ## Basics
@@ -76,9 +76,9 @@ shp[is.na(shp)] <- 0
 ------------------------------------------------------------------------
 
 For users with the newest package version, there is an added dependency
-on [`censable`](https://christophertkenny.com/censable/), which
-allows for an easier workflow. If you’ve used the `add_pmmf*_path()`
-workflow suggested, you don’t even need to supply the paths!
+on [`censable`](https://christophertkenny.com/censable/), which allows
+for an easier workflow. If you’ve used the `add_pmmf*_path()` workflow
+suggested, you don’t even need to supply the paths!
 
 This will not just read the `ppmf` data, it will merge it with 2010
 Census populations (by major race/ethnicity grouping) and add the

@@ -16,8 +16,6 @@
 #' @return input data ppmf with added column GEOID
 #' @export
 #'
-#' @importFrom rlang enquo eval_tidy
-#' @importFrom dplyr mutate
 #' @concept geoid
 #' @examples
 #' data(ppmf_ex)
@@ -60,7 +58,6 @@ add_geoid <- function(ppmf, state = TABBLKST, county = TABBLKCOU,
 #' @return tibble. ppmf with columns added for state, county, tract, block group, and/or block
 #' @export
 #'
-#' @importFrom stringr str_sub str_length
 #' @concept geoid
 #' @examples
 #' data(ppmf_ex)
@@ -71,7 +68,7 @@ breakdown_geoid <- function(ppmf, GEOID = GEOID){
     stop('ppmf argument missing in add_geoid.')
   }
 
-  geoid_col <- eval_tidy(enquo(GEOID), ppmf)
+  geoid_col <- rlang::eval_tidy(rlang::enquo(GEOID), ppmf)
 
   if(is.null(geoid_col[1])){
     stop('`GEOID` is not a column in ppmf.')
@@ -83,21 +80,21 @@ breakdown_geoid <- function(ppmf, GEOID = GEOID){
     len <- stringr::str_length(geoid_col[1])
   }
 
-  ppmf <- ppmf |> mutate(state = stringr::str_sub({{GEOID}}, 1, 2))
+  ppmf <- ppmf |> dplyr::mutate(state = stringr::str_sub({{GEOID}}, 1, 2))
 
   if(len >= 5){
-    ppmf <- ppmf |> mutate(county = stringr::str_sub({{GEOID}}, 3, 5))
+    ppmf <- ppmf |> dplyr::mutate(county = stringr::str_sub({{GEOID}}, 3, 5))
   }
 
   if(len >= 11){
-    ppmf <- ppmf |> mutate(tract = stringr::str_sub({{GEOID}}, 6, 11))
+    ppmf <- ppmf |> dplyr::mutate(tract = stringr::str_sub({{GEOID}}, 6, 11))
   }
 
   if(len >= 12){
-    ppmf <- ppmf |> mutate(block_group = stringr::str_sub({{GEOID}},12,12))
+    ppmf <- ppmf |> dplyr::mutate(block_group = stringr::str_sub({{GEOID}},12,12))
   }
   if(len >= 15){
-    ppmf <- ppmf |> mutate(block = stringr::str_sub({{GEOID}}, 12, 15))
+    ppmf <- ppmf |> dplyr::mutate(block = stringr::str_sub({{GEOID}}, 12, 15))
   }
 
   ppmf

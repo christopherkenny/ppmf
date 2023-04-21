@@ -14,22 +14,22 @@
 #' data(ppmf_ex)
 #' ppmf_ex |> replace_race()
 replace_race <- function(ppmf, race = CENRACE){
-  races <- get('races') |> select(-.data$desc)
+  races <- get('races') |> dplyr::select(-.data$desc)
 
   #races <- races |> dplyr::rename(race = .data$code)
   races[[rlang::as_name(rlang::enquo(race))]] <- races$code
 
-  if(rlang::as_name(enquo(race)) != 'code'){
-    races <- races |> select(-.data$code)
+  if(rlang::as_name(rlang::enquo(race)) != 'code'){
+    races <- races |> dplyr::select(-.data$code)
   }
 
   races <- races |> dplyr::rename(group_race_name = .data$group)
 
-  ppmf <- ppmf |> dplyr::left_join(races, by = rlang::as_name(enquo(race)))
+  ppmf <- ppmf |> dplyr::left_join(races, by = rlang::as_name(rlang::enquo(race)))
 
   ppmf$group_race_name[is.na(ppmf$group_race_name)] <- 'hisp'
 
-  ppmf[[rlang::as_name(enquo(race))]] <- ppmf$group_race_name
+  ppmf[[rlang::as_name(rlang::enquo(race))]] <- ppmf$group_race_name
   ppmf[['group_race_name']] <- NULL
 
   ppmf
@@ -50,7 +50,7 @@ replace_race <- function(ppmf, race = CENRACE){
 #' ppmf_ex |> replace_race() |> overwrite_hisp_race()
 overwrite_hisp_race <- function(ppmf, race = CENRACE, hisp = CENHISP){
 
-  ppmf[[rlang::as_name(rlang::enquo(race))]][ppmf[[rlang::as_name(enquo(hisp))]] == 2 ] <- 'hisp'
+  ppmf[[rlang::as_name(rlang::enquo(race))]][ppmf[[rlang::as_name(rlang::enquo(hisp))]] == 2 ] <- 'hisp'
 
   ppmf
 }

@@ -59,7 +59,6 @@ NULL
 #' @examples
 #' data('races')
 #'
-#'
 #' @concept data
 #' @md
 NULL
