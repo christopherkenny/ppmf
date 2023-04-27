@@ -11,7 +11,8 @@ download_ppmf(dsn, dir = "", version = "19r", overwrite = FALSE)
 
 \item{dir}{the folder or directory to save the file in}
 
-\item{version}{string in '19', '12' or '4' signifying the 19.61, 12.2 or 4.5 versions respectively}
+\item{version}{string in '19r', '19', '12' or '4' signifying the revised 19.61,
+original 19.61, 12.2 or 4.5 versions respectively}
 
 \item{overwrite}{If a file is found at path/dsn, should it be overwritten?
 Defaults to FALSE.}

@@ -26,10 +26,10 @@ add_geoid <- function(ppmf, state = TABBLKST, county = TABBLKCOU,
                       block = TABBLK, level = 'block'){
 
   if(missing(ppmf)){
-    stop('ppmf argument missing in add_geoid.')
+    stop('ppmf argument missing in `add_geoid()`.')
   }
 
-  match.arg(level, choices = c('block', 'block group', 'tract', 'county'))
+  match.arg(level, choices = c('block', 'block group', 'tract', 'county', 'state'))
 
   if( level == 'block' ){
     block_group <- NULL
@@ -38,10 +38,15 @@ add_geoid <- function(ppmf, state = TABBLKST, county = TABBLKCOU,
   } else if ( level == 'tract') {
     block <- NULL
     block_group <- NULL
+  } else if (level == 'county') {
+    block <- NULL
+    block_group <- NULL
+    tract <- NULL
   } else {
     block <- NULL
     block_group <- NULL
     tract <- NULL
+    county <- NULL
   }
 
   ppmf |>
