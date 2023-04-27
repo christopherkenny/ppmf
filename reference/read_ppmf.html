@@ -45,7 +45,7 @@ not have a local copy of the ppmf data."><meta property="og:image" content="http
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Read in PPMF Data</h1>
-    <small class="dont-index">Source: <a href="https://github.com/christopherkenny/ppmf/blob/HEAD/R/get_data.R" class="external-link"><code>R/get_data.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/christopherkenny/ppmf/blob/HEAD/R/read.R" class="external-link"><code>R/read.R</code></a></small>
     <div class="hidden name"><code>read_ppmf.Rd</code></div>
     </div>
 
@@ -55,7 +55,7 @@ not have a local copy of the ppmf data.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read_ppmf</span><span class="op">(</span><span class="va">state</span>, <span class="va">path</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read_ppmf</span><span class="op">(</span><span class="va">state</span>, <span class="va">path</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -66,6 +66,10 @@ not have a local copy of the ppmf data.</p>
 
 <dt>path</dt>
 <dd><p>where the data is saved to</p></dd>
+
+
+<dt>...</dt>
+<dd><p>additional arguments passed on to <code><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">readr::read_csv()</a></code></p></dd>
 
 </dl></div>
     <div id="value">
