@@ -15,44 +15,7 @@
 #' }
 #'
 add_ppmf12_path <- function(path, overwrite = FALSE, install = FALSE) {
-  if (missing(path)) {
-    stop('Input `path` cannot be missing.')
-  }
-
-  if (install) {
-    r_env <- file.path(Sys.getenv('HOME'), '.Renviron')
-
-    if (!file.exists(r_env)) {
-      file.create(r_env)
-    }
-
-    lines <- readLines(r_env)
-    newline <- paste0("ppmf12='", path.expand(path), "'")
-
-    exists <- stringr::str_detect(lines, 'ppmf12=')
-
-    if (any(exists)) {
-      if (sum(exists) > 1) {
-        stop('Multiple entries in .Renviron have name matching input `name`.\nEdit manually with `usethis::edit_r_environ()`.')
-      }
-
-      if (overwrite) {
-        lines[exists] <- newline
-        writeLines(lines, r_env)
-        message('Run `readRenviron("~/.Renviron")` to update your active environment.')
-      } else {
-        message('ppmf12 already exists in .Renviron. \nEdit manually with `usethis::edit_r_environ() or set `overwrite = TRUE`.')
-      }
-    } else {
-      lines[length(lines) + 1] <- newline
-      writeLines(lines, r_env)
-      message('Run `readRenviron("~/.Renviron")` to update your active environment.')
-    }
-  } else {
-    Sys.setenv(ppmf12 = path)
-  }
-
-  invisible(path)
+  add_r_environ(path, 'ppmf12', overwrite, install)
 }
 
 
@@ -74,44 +37,7 @@ add_ppmf12_path <- function(path, overwrite = FALSE, install = FALSE) {
 #' }
 #'
 add_ppmf4_path <- function(path, overwrite = FALSE, install = FALSE) {
-  if (missing(path)) {
-    stop('Input `path` cannot be missing.')
-  }
-
-  if (install) {
-    r_env <- file.path(Sys.getenv('HOME'), '.Renviron')
-
-    if (!file.exists(r_env)) {
-      file.create(r_env)
-    }
-
-    lines <- readLines(r_env)
-    newline <- paste0("ppmf4='", path.expand(path), "'")
-
-    exists <- stringr::str_detect(lines, 'ppmf4=')
-
-    if (any(exists)) {
-      if (sum(exists) > 1) {
-        stop('Multiple entries in .Renviron have name matching input `name`.\nEdit manually with `usethis::edit_r_environ()`.')
-      }
-
-      if (overwrite) {
-        lines[exists] <- newline
-        writeLines(lines, r_env)
-        message('Run `readRenviron("~/.Renviron")` to update your active environment.')
-      } else {
-        message('ppmf4 already exists in .Renviron. \nEdit manually with `usethis::edit_r_environ() or set `overwrite = TRUE`.')
-      }
-    } else {
-      lines[length(lines) + 1] <- newline
-      writeLines(lines, r_env)
-      message('Run `readRenviron("~/.Renviron")` to update your active environment.')
-    }
-  } else {
-    Sys.setenv(ppmf4 = path)
-  }
-
-  invisible(path)
+  add_r_environ(path, 'ppmf4', overwrite, install)
 }
 
 
@@ -132,44 +58,7 @@ add_ppmf4_path <- function(path, overwrite = FALSE, install = FALSE) {
 #' }
 #'
 add_ppmf19_path <- function(path, overwrite = FALSE, install = FALSE) {
-  if (missing(path)) {
-    stop('Input `path` cannot be missing.')
-  }
-
-  if (install) {
-    r_env <- file.path(Sys.getenv('HOME'), '.Renviron')
-
-    if (!file.exists(r_env)) {
-      file.create(r_env)
-    }
-
-    lines <- readLines(r_env)
-    newline <- paste0("ppmf19='", path.expand(path), "'")
-
-    exists <- stringr::str_detect(lines, 'ppmf19=')
-
-    if (any(exists)) {
-      if (sum(exists) > 1) {
-        stop('Multiple entries in .Renviron have name matching input `name`.\nEdit manually with `usethis::edit_r_environ()`.')
-      }
-
-      if (overwrite) {
-        lines[exists] <- newline
-        writeLines(lines, r_env)
-        message('Run `readRenviron("~/.Renviron")` to update your active environment.')
-      } else {
-        message('ppmf19 already exists in .Renviron. \nEdit manually with `usethis::edit_r_environ() or set `overwrite = TRUE`.')
-      }
-    } else {
-      lines[length(lines) + 1] <- newline
-      writeLines(lines, r_env)
-      message('Run `readRenviron("~/.Renviron")` to update your active environment.')
-    }
-  } else {
-    Sys.setenv(ppmf19 = path)
-  }
-
-  invisible(path)
+  add_r_environ(path, 'ppmf19', overwrite, install)
 }
 
 #' Add ppmf19r path to Renviron
@@ -191,9 +80,19 @@ add_ppmf19_path <- function(path, overwrite = FALSE, install = FALSE) {
 #' }
 #'
 add_ppmf19r_path <- function(path, overwrite = FALSE, install = FALSE) {
-  if (missing(path)) {
-    stop('Input `path` cannot be missing.')
+  add_r_environ(path, 'ppmf19r', overwrite, install)
+}
+
+add_r_environ <- function(value, name, overwrite = FALSE, install = FALSE) {
+  if (missing(value)) {
+    stop('Input `value` cannot be missing.')
   }
+  if (missing(name)) {
+    stop('Input `name` cannot be missing.')
+  }
+
+  value <- list(value)
+  names(value) <- name
 
   if (install) {
     r_env <- file.path(Sys.getenv('HOME'), '.Renviron')
@@ -203,9 +102,9 @@ add_ppmf19r_path <- function(path, overwrite = FALSE, install = FALSE) {
     }
 
     lines <- readLines(r_env)
-    newline <- paste0("ppmf19r='", path.expand(path), "'")
+    newline <- paste0(name, "='", value, "'")
 
-    exists <- stringr::str_detect(lines, 'ppmf19r=')
+    exists <- stringr::str_detect(lines, paste0(name, '='))
 
     if (any(exists)) {
       if (sum(exists) > 1) {
@@ -215,19 +114,19 @@ add_ppmf19r_path <- function(path, overwrite = FALSE, install = FALSE) {
       if (overwrite) {
         lines[exists] <- newline
         writeLines(lines, r_env)
-        message('Run `readRenviron("~/.Renviron")` to update your active environment.')
+        do.call(Sys.setenv, value)
       } else {
-        message('ppmf19r already exists in .Renviron. \nEdit manually with `usethis::edit_r_environ() or set `overwrite = TRUE`.')
+        message(paste0(name, ' already exists in .Renviron. \nEdit manually with `usethis::edit_r_environ() or set `overwrite = TRUE`.'))
       }
     } else {
       lines[length(lines) + 1] <- newline
       writeLines(lines, r_env)
-      message('Run `readRenviron("~/.Renviron")` to update your active environment.')
+      do.call(Sys.setenv, value)
     }
   } else {
-    Sys.setenv(ppmf19r = path)
+    do.call(Sys.setenv, value)
   }
 
-  invisible(path)
+  invisible(value)
 }
 
