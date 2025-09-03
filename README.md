@@ -6,6 +6,13 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/christopherkenny/ppmf/workflows/R-CMD-check/badge.svg)](https://github.com/christopherkenny/ppmf/actions)
+[![ppmf status
+badge](https://christopherkenny.r-universe.dev/badges/ppmf)](https://christopherkenny.r-universe.dev/ppmf)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/ppmf)](https://CRAN.R-project.org/package=ppmf)
+![CRAN downloads](http://cranlogs.r-pkg.org/badges/grand-total/ppmf)
 <!-- badges: end -->
 
 The goal of `ppmf` is to convert Census Privacy Protected Microdata
@@ -13,12 +20,18 @@ Files into somewhat wider data aggregated to a geographic level.
 
 ## Installation
 
+To install the stable version from CRAN, use the following code:
+
+``` r
+install.packages('ppmf')
+```
+
 You can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("christopherkenny/ppmf")
+# install.packages('remotes')
+remotes::install_github('christopherkenny/ppmf')
 ```
 
 ## Basics
