@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/christopherkenny/ppmf/workflows/R-CMD-check/badge.svg)](https://github.com/christopherkenny/ppmf/actions)
+[![R-CMD-check](https://github.com/christopherkenny/ppmf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/christopherkenny/ppmf/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of `ppmf` is to convert Census Privacy Protected Microdata Files into somewhat wider data aggregated to a geographic level.
