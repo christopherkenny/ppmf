@@ -1,5 +1,7 @@
 url: https://christopherkenny.github.io/ppmf/
 template:
+  bootstrap: 5
+  package: ctktemplate
   params:
     bootswatch: simplex
 reference:
